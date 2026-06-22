@@ -15,7 +15,7 @@ const MONGO_URI = process.env.MONGO_URI || "mongodb://localhost:27017/octofit_db
 // Codespaces-aware API URL support using CODESPACE_NAME
 const CODESPACE = process.env.CODESPACE_NAME;
 const API_URL = CODESPACE
-  ? `https://${CODESPACE}-${PORT}.githubpreview.dev`
+  ? `https://${CODESPACE}-8000.app.github.dev`
   : `http://localhost:${PORT}`;
 
 const app = express();
