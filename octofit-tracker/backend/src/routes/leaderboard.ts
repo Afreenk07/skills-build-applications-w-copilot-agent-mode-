@@ -1,10 +1,11 @@
 import { Router } from "express";
+import Leaderboard from "../models/leaderboard";
 
 const router = Router();
 
-// Simple leaderboard GET
-router.get("/", (_req, res) => {
-  res.json({ leaderboard: [], message: "leaderboard (placeholder)" });
+router.get("/", async (_req, res) => {
+  const leaderboard = await Leaderboard.find().populate("team user").sort({ points: -1 }).lean();
+  res.json({ leaderboard });
 });
 
 export default router;
